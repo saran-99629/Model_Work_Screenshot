@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        /* Define CSS styles for the screenshots */
+        .screenshot {
+            width: 300px; /* Adjust the width as needed */
+            height: auto; /* Maintain aspect ratio */
+            margin-bottom: 20px; /* Add some margin between screenshots */
+        }
+    </style>
+    {%load static%}
+</head>
+
+<body>
+    <h1>Result page Working</h1>
+    <h1>
+        <div class="container">
+            {%if url_input %}
+                <p>{{url_input}}</p>
+            {% endif %}
+            {%if res_fin%}
+                <p>{{  res_fin }}</p>
+            {% elif error %}
+                <p>Error: {{ error }}</p>    
+            {% endif %}
+                
+        </div>
+
+
+    </h1>
+    <h1>Screen Shots</h1>
+    <div class='container2'>
+        <!-- {% for screenshot in screenshots %}
+            <img src="{{screenshot }}" class="screenshot" alt="Screenshot">
+        {% endfor %}-->
+        {% for i in "123456" %}
+            <img src="{%static 'screenshots/screenshot_'|add:i|add:'.png' %}" alt="screenshot {{i}}">
+        {% endfor %}
+    </div>
+
+</body>
+</html>

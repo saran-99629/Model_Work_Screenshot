@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process</title>
+</head>
+<body>
+    <h1>Running User Applications</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Application Name</th>
+                <th>Instances</th>
+                <th>Cpu Time (seconds)</th>
+                <th>Percentage</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for app in apps_data %}
+            <tr>
+                <td>{{app.name}}</td>
+                <td>{{app.count}}</td>
+                <td>{{app.cpu_time}}</td>
+                <td>{{app.percentage|floatformat:2}}%</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</body>
+</html>
